@@ -61,7 +61,11 @@ public class XlsReader {
 	    			   xlsRow.add(cell);
 	    		   }
 	    	   }
-	    	   xlsSheet.put(xlsRow.get(0).toString(), xlsRow);	    	   
+	    	   if(xlsRow.size()>0 && xlsRow.get(0)!=null) // check if there is atleast one column
+	    	   {
+	    		   xlsSheet.put(xlsRow.get(0).toString(), xlsRow);
+	    	   }
+	    	   	    	   
 	       }
 	       return xlsSheet;
 	}
