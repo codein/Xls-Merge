@@ -41,7 +41,7 @@ public class XlsMerger {
 		      
 		    } 
 		    
-		    XlsWriter.writeToXls(mergeFile);
+		    XlsWriter.writeToXls(mergeFile,"merge.xls");
 		
 	}
 	
