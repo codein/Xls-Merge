@@ -14,17 +14,25 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
+
+/**
+ * 
+ * This class has static methods implemented to Write to a xls file.
+ * @author E0F295
+ *
+ */
 public class XlsWriter {
 
 	/**
-	 * @param args
+	 * Given a {@link HashMap} and {@link String} fileName
+	 * This method renders the given {@link HashMap} parameter into a .xls file with the specified filename
+	 * @param xlsSheet this is the in memory representation of the .xls file to be rendered
+	 * @param fileName the file name in which the .xls file needs to be rendered 
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-	}
 	
-	public static void writeToXls(HashMap<String,ArrayList<Cell>> xlsSheet) throws IOException
+	public static void writeToXls(HashMap<String,ArrayList<Cell>> xlsSheet,String fileName) throws IOException
 	{
 		
 		   HSSFWorkbook workbook = new HSSFWorkbook();
@@ -65,11 +73,54 @@ public class XlsWriter {
 		    }
 		    
 		 // Write the output to a file
-	        FileOutputStream fileOut = new FileOutputStream("c:/Robin local/gap analysis/merge/merge.xls");
+	        FileOutputStream fileOut = new FileOutputStream(fileName);
 	        workbook.write(fileOut);
 	        fileOut.close();
 		    
 		    
 	}
+	
+//	public static void writeToXls(HashMap<String,ArrayList<String>> xlsSheet, String fileName) throws IOException
+//	{
+//		
+//		   HSSFWorkbook workbook = new HSSFWorkbook();
+//		   Sheet sheet = workbook.createSheet();
+//		
+//		   Set entries = xlsSheet.entrySet();
+//		    Iterator it = entries.iterator();
+//		    int rowNumber=0;
+//		    while (it.hasNext()) {
+//			      Map.Entry entry = (Map.Entry) it.next();
+//			      
+//			      
+//			      ArrayList<String> xlsRow1 = (ArrayList<String>) entry.getValue();
+//			      Row row = sheet.createRow(rowNumber++);
+//			      String cell = null;
+//			      for(int a=0;a<xlsRow1.size();a++)
+//			      {
+//			    	  
+//			    	  cell = xlsRow1.get(a);
+//			    	  Cell newCell = row.createCell(a);
+//			    	  if(cell!=null)
+//			    	  {
+//
+//			    			  newCell.setCellValue(cell.toString());
+//			    		  
+//			    		  
+//			    	  }
+//			    	  else
+//			    	  {
+//			    		  newCell.setCellValue("");
+//			    	  }
+//			      }
+//		    }
+//		    
+//		 // Write the output to a file
+//	        FileOutputStream fileOut = new FileOutputStream(fileName);
+//	        workbook.write(fileOut);
+//	        fileOut.close();
+//		    
+//		    
+//	}
 
 }
